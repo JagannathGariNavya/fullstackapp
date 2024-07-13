@@ -1,11 +1,15 @@
-const express=require("express");
-const app=express();
+const express = require("express");
+const app = express();
 require("dotenv").config();
-const port=3000;
+const port = 3000;
+
 app.use(express.json());
-app.get("/",(req,res)=>{
+
+app.get("/", (req, res) => {
     console.log("this is home route");
-})
-app.listen(port,()=>{
-    console.log("running")
-})
+    res.send("Hello, this is the home route!"); // Send a response to the client
+});
+
+app.listen(port, () => {
+    console.log("Server is running on port " + port);
+});
